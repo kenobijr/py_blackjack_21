@@ -1,22 +1,26 @@
 from src.scoring import calc_score, check_blackjack, compare_scores_1st_round, compare_scores_n_rounds
 
+
 def test_calc_score():
     """returns scores as int for list cardsets"""
     assert calc_score([5, 10]) == 15
     assert calc_score([5, 10, 7]) == 22
     assert calc_score([11, 2, 6, 8, 10]) == 37
 
+
 def test_check_blackjack():
     """checks if player or computer or both have blackjack in 1st round and returns bool"""
-    assert check_blackjack(21, 12) == True
-    assert check_blackjack(8, 21) == True
-    assert check_blackjack(21, 21) == True
-    assert check_blackjack(14, 12) == False
+    assert check_blackjack(21, 12) is True
+    assert check_blackjack(8, 21) is True
+    assert check_blackjack(21, 21) is True
+    assert check_blackjack(14, 12) is False
+
 
 def test_compare_scores_1st_round():
     """returns computer wins str for 21 as computer's score and player wins str for all other scores"""
     assert compare_scores_1st_round(21) == "Computer has Blackjack, you lose. 😱"
     assert compare_scores_1st_round(10) == "You have Blackjack, you won! 😎"
+
 
 def test_compare_scores_n_rounds():
     """compares scores for an end state in all but the 1st rounds  and returns winner message as str for all cases"""

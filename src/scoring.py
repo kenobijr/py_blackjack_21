@@ -1,9 +1,11 @@
 # Constants
 BLACKJACK = 21
 
+
 def calc_score(cards):
     """receives a list of n cards from card_deck in format [5, 10, 3] and returns the score"""
     return sum(cards)
+
 
 def check_blackjack(player_score, computer_score):
     """
@@ -13,9 +15,10 @@ def check_blackjack(player_score, computer_score):
     """
     return player_score == BLACKJACK or computer_score == BLACKJACK
 
+
 def compare_scores_1st_round(computer_score):
     """
-    compares the scores for a end state and returns winner message as str
+    compares the scores for an end state and returns winner message as str
     is only applied at 1st round if at least player or computer (or both) had Blackjack (=21)
     """
     # if computer has blackjack, it wins; also if player has blackjack too
@@ -25,9 +28,10 @@ def compare_scores_1st_round(computer_score):
     else:
         return "You have Blackjack, you won! 😎"
 
+
 def compare_scores_n_rounds(player_score, computer_score):
     """
-    compares the scores for a end state for 1 + n rounds and returns winner message as str
+    compares the scores for an end state for 1 + n rounds and returns winner message as str
     winning rules top to bottom:
     - both went over, computer wins
     - only player went over, computer wins

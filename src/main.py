@@ -1,5 +1,5 @@
 from src.helpers import print_game_stats, print_game_results, exit_game, init_ui
-from src.card_ops import handle_aces_if_needed, execute_turn, French_deck
+from src.card_ops import handle_aces_if_needed, execute_turn, FrenchDeck
 from src.scoring import calc_score, compare_scores_1st_round, compare_scores_n_rounds, check_blackjack
 
 # constants
@@ -28,7 +28,8 @@ def main():
         init_ui()
         run_game()
 
-def run_game(deck=French_deck(), player_cards=None, computer_cards=None):
+
+def run_game(deck=FrenchDeck(), player_cards=None, computer_cards=None):
     """
     manages the core gameflow: initial round, player and computer turns, determines the winner
     args:
@@ -58,6 +59,7 @@ def run_game(deck=French_deck(), player_cards=None, computer_cards=None):
     winner = compare_scores_n_rounds(player_score, computer_score)
     print_game_results(player_cards, player_score, computer_cards, computer_score, winner)
 
+
 def player_turn(player_cards, player_score, computer_cards, deck):
     """
     handles the player's turn; player hits as he sees fit until he stands or busts
@@ -70,7 +72,7 @@ def player_turn(player_cards, player_score, computer_cards, deck):
         # break loop and return values if player doesn't hit
         if draw_card != PLAY_YES:
             break
-        # draw a card, update score, check if score over 21 and ace in cards; if yes, replace ace by 1, update cards and score
+        # draw a card, update score, check if score > 21 & ace in cards; if yes, replace ace by 1, update cards & score
         player_cards, player_score = execute_turn(player_cards, deck)
         print_game_stats(player_cards, player_score, computer_cards)
         # if player went over (=bust), set bust flag for computer turn, break loop and return values
@@ -79,15 +81,17 @@ def player_turn(player_cards, player_score, computer_cards, deck):
             break
     return player_cards, player_score, player_bust
 
+
 def computer_turn(computer_cards, computer_score, player_bust, deck):
     """
-    computer draws cards only if the player didn't bust and it's under the minimum score of 17;
+    computer draws cards only if the player didn't bust, and it's under the minimum score of 17;
     draws until going over the min score or busting
     """
     while computer_score < COMPUTER_MIN_SCORE and not player_bust:
-        # draw a card, update score, check if score over 21 and ace in cards; if yes, replace ace by 1, update cards and score
+        # draw a card, update score, check if score > 21 & ace in cards; if yes, replace ace by 1, update cards & score
         computer_cards, computer_score = execute_turn(computer_cards, deck)
     return computer_cards, computer_score
+
 
 if __name__ == "__main__":
     main()

@@ -1,6 +1,7 @@
 import pytest
 from src.helpers import print_game_stats, print_game_results, exit_game
 
+
 def test_print_game_stats(capsys):
     """takes cards as list and score as int for player, 1st card of computer, and prints it to terminal"""
     print_game_stats([6, 11], 17, [7, 7])
@@ -10,6 +11,7 @@ def test_print_game_stats(capsys):
         "    Computer's first card: 7\n"
     )
     assert captured.out == expected_output
+
 
 def test_print_game_results(capsys):
     """takes cards as list, scores as ints, winner message and prints it to terminal"""
@@ -21,6 +23,7 @@ def test_print_game_results(capsys):
         "You went over, you lose. 😭\n"
     )
     assert captured.out == expected_output
+
 
 def test_exit_game():
     with pytest.raises(SystemExit) as exinfo:
