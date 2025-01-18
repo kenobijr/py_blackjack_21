@@ -1,5 +1,5 @@
 import pytest
-from helpers import print_game_stats, print_game_results, exit_game
+from src.helpers import print_game_stats, print_game_results, exit_game
 
 def test_print_game_stats(capsys):
     """takes cards as list and score as int for player, 1st card of computer, and prints it to terminal"""

@@ -1,5 +1,5 @@
 import pytest
-from project import run_game, player_turn, computer_turn
+from src.main import run_game, player_turn, computer_turn
 
 def test_run_game_blackjack_computer(capsys):
     """

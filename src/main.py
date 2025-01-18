@@ -1,6 +1,6 @@
-from helpers import print_game_stats, print_game_results, exit_game, init_ui
-from card_ops import handle_aces_if_needed, execute_turn, French_deck
-from scoring import calc_score, compare_scores_1st_round, compare_scores_n_rounds, check_blackjack
+from src.helpers import print_game_stats, print_game_results, exit_game, init_ui
+from src.card_ops import handle_aces_if_needed, execute_turn, French_deck
+from src.scoring import calc_score, compare_scores_1st_round, compare_scores_n_rounds, check_blackjack
 
 # constants
 PLAY_YES = "y"

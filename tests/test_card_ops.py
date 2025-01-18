@@ -1,5 +1,5 @@
 import pytest
-from card_ops import French_deck, replace_ace_by_one, handle_aces_if_needed, execute_turn
+from src.card_ops import French_deck, replace_ace_by_one, handle_aces_if_needed, execute_turn
 
 def test_French_deck_init():
     """test creation of card deck object"""

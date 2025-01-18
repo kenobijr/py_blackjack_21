@@ -1,5 +1,5 @@
 import random
-from scoring import calc_score
+from src.scoring import calc_score
 
 # Constants
 BLACKJACK = 21

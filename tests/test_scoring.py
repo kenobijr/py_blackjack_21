@@ -1,4 +1,4 @@
-from scoring import calc_score, check_blackjack, compare_scores_1st_round, compare_scores_n_rounds
+from src.scoring import calc_score, check_blackjack, compare_scores_1st_round, compare_scores_n_rounds
 
 def test_calc_score():
     """returns scores as int for list cardsets"""
