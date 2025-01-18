@@ -3,13 +3,13 @@ from src.card_ops import handle_aces_if_needed, execute_turn, FrenchDeck
 from src.scoring import calc_score, compare_scores_1st_round, compare_scores_n_rounds, check_blackjack
 
 # constants
-PLAY_YES = "y"
-PLAY_NO = "n"
-BLACKJACK = 21
-COMPUTER_MIN_SCORE = 17
+PLAY_YES: str = "y"
+PLAY_NO: str = "n"
+BLACKJACK: int = 21
+COMPUTER_MIN_SCORE: int = 17
 
 
-def main():
+def main() -> None:
     """Ask player to start game; ask to play further games after completing the first one continuously"""
     # clear terminal and print game logo
     init_ui()

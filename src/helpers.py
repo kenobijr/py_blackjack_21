@@ -14,19 +14,19 @@ logo = r"""
 """
 
 
-def init_ui():
+def init_ui() -> None:
     """clears the terminal and prints game logo"""
     clear_screen()
     print(logo)
 
 
-def clear_screen():
+def clear_screen() -> None:
     """clears the screen; cls for windows, clear for macOS and linux"""
     command = 'cls' if os.name == 'nt' else 'clear'
     os.system(command)
 
 
-def exit_game():
+def exit_game() -> None:
     """clears the screen and exits the application"""
     clear_screen()
     sys.exit("Bye bye")
