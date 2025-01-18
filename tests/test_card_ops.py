@@ -37,8 +37,7 @@ def test_replace_ace_by_one_valid():
 
 def test_replace_ace_by_one_invalid():
     """invalid request with no 11 in the sequence"""
-    with pytest.raises(ValueError):
-        replace_ace_by_one([6, 10])
+    assert replace_ace_by_one([6, 10]) == [6, 10]
 
 
 def test_handle_aces_if_needed():

@@ -1,8 +1,9 @@
 import random
 from src.scoring import calc_score
+from typing import List, Tuple
 
 # Constants
-BLACKJACK = 21
+BLACKJACK: int = 21
 
 """
 A standard Blackjack deck is based on a 52-card deck used in regular card games. Here’s how the cards are structured:
@@ -20,32 +21,35 @@ A standard Blackjack deck is based on a 52-card deck used in regular card games.
 
 class FrenchDeck:
     """class for set of 52 french cards, returns n random cards from set and reduces them drawn cards from set"""
-    # init deck with 52 french cards
     def __init__(self):
+        """initializes the deck with 52 cards (4 sets of values: 2–11)"""
         self.cards = sorted([2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11] * 4)
-    # draw n random cards, remove them from set and return them
 
-    def draw_card(self, n):
-        drawn_cards = [random.choice(self.cards) for _ in range(n)]
+    def draw_card(self, n: int) -> List[int]:
+        """draw n random cards (reduced by random sample), remove them from set and return them"""
+        if n > len(self.cards):
+            raise ValueError("Not enough cards left to draw")
+        drawn_cards = random.sample(self.cards, n)
         self.remove_drawn_cards(drawn_cards)
         return drawn_cards
-    # remove n cards from a list from the set; only called from inside draw_card method
 
-    def remove_drawn_cards(self, drawn_cards):
+    def remove_drawn_cards(self, drawn_cards: List[int]) -> None:
+        """remove n cards from a list from the set; only called from inside draw_card method"""
         for card in drawn_cards:
             self.cards.remove(card)
 
 
-def replace_ace_by_one(cards):
-    """receives n cards as list [11, 11]; replaces the first 11 with 1 and returns updated card list"""
-    # get index of first ace in deck
-    pos_first_ace = cards.index(11)
-    # replace the ace at that position by 1
-    cards[pos_first_ace] = 1
+def replace_ace_by_one(cards: List[int]) -> List[int]:
+    """
+    replaces the first occurrence of 11 with 1 in the given card list; only called if at least one 11 in cards;
+    safeguard: if no 11 is found, returns the cards unchanged
+    """
+    if 11 in cards:
+        cards[cards.index(11)] = 1
     return cards
 
 
-def handle_aces_if_needed(cards, score):
+def handle_aces_if_needed(cards: List[int], score: int) -> Tuple[List[int], int]:
     """replaces ace (11) with 1 if the score exceeds 21 and there's an 11 in cards with updated deck and score,
     otherwise return cards as is"""
     if score > BLACKJACK and 11 in cards:
@@ -54,7 +58,7 @@ def handle_aces_if_needed(cards, score):
     return cards, score
 
 
-def execute_turn(cards, deck):
+def execute_turn(cards: List[int], deck: FrenchDeck) -> Tuple[List[int], int]:
     """receives cards, adds further card and updates score; if over 21, replace A, update cards and score;
     return cards and score"""
     cards += deck.draw_card(1)

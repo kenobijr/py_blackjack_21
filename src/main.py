@@ -1,6 +1,7 @@
 from src.helpers import print_game_stats, print_game_results, exit_game, init_ui
 from src.card_ops import handle_aces_if_needed, execute_turn, FrenchDeck
 from src.scoring import calc_score, compare_scores_1st_round, compare_scores_n_rounds, check_blackjack
+from typing import List, Optional, Tuple
 
 # constants
 PLAY_YES: str = "y"
@@ -29,7 +30,11 @@ def main() -> None:
         run_game()
 
 
-def run_game(deck=FrenchDeck(), player_cards=None, computer_cards=None):
+def run_game(
+    deck: FrenchDeck = FrenchDeck(),
+    player_cards: Optional[list[int]] = None,
+    computer_cards: Optional[List[int]] = None
+) -> None:
     """
     manages the core gameflow: initial round, player and computer turns, determines the winner
     args:
@@ -60,13 +65,27 @@ def run_game(deck=FrenchDeck(), player_cards=None, computer_cards=None):
     print_game_results(player_cards, player_score, computer_cards, computer_score, winner)
 
 
-def player_turn(player_cards, player_score, computer_cards, deck):
+def player_turn(
+    player_cards: List[int],
+    player_score: int,
+    computer_cards: List[int],
+    deck: FrenchDeck
+) -> Tuple[List[int], int, bool]:
     """
     handles the player's turn; player hits as he sees fit until he stands or busts
-    computer's cards are handed in as argument to print game results if necessary
-    returns flag needed for computer's turn if player went bust
+    args:
+        player_cards (List[int]): The player's current hand as a list of card values
+        player_score (int): The player's current score
+        computer_cards (List[int]): The computer's cards, used to display game stats
+        deck (FrenchDeck): The current deck of cards
+    returns:
+        Tuple[List[int], int, bool]:
+            - updated player_cards after the turn
+            - updated player_score after the turn
+            - a boolean flag indicating whether the player went bust (true if bust, false otherwise)
+
     """
-    player_bust = False
+    player_bust: bool = False
     while True:
         draw_card = input("Type \"y\" to draw another card or \"n\" to pass: ")
         # break loop and return values if player doesn't hit
@@ -82,10 +101,24 @@ def player_turn(player_cards, player_score, computer_cards, deck):
     return player_cards, player_score, player_bust
 
 
-def computer_turn(computer_cards, computer_score, player_bust, deck):
+def computer_turn(
+    computer_cards: List[int],
+    computer_score: int,
+    player_bust: bool,
+    deck: FrenchDeck
+) -> Tuple[List[int], int]:
     """
-    computer draws cards only if the player didn't bust, and it's under the minimum score of 17;
-    draws until going over the min score or busting
+    handles the computer's turn; computer draws cards only if the player didn't bust,
+    and it's under the minimum score of 17; continues drawing until going over the min score of 17  or busting
+    args:
+        computer_cards (List[int]): the computer's current hand as a list of card values
+        computer_score (int): the computer's current score
+        player_bust (bool): a flag indicating if the player has busted; if true, the computer does not draw cards
+        deck (FrenchDeck): the current deck of cards used to draw additional cards
+    returns:
+        Tuple[List[int], int]:
+            - updated computer_cards after the turn
+            - updated computer_score after the turn
     """
     while computer_score < COMPUTER_MIN_SCORE and not player_bust:
         # draw a card, update score, check if score > 21 & ace in cards; if yes, replace ace by 1, update cards & score
