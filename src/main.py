@@ -72,7 +72,7 @@ def player_turn(
     deck: FrenchDeck
 ) -> Tuple[List[int], int, bool]:
     """
-    handles the player's turn; player hits as he sees fit until he stands or busts
+    handles the player's turn; player hits as he sees fit until he stands or goes bust
     args:
         player_cards (List[int]): The player's current hand as a list of card values
         player_score (int): The player's current score
