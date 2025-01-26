@@ -1,4 +1,5 @@
 # Blackjack PY -- 21 (Python)
+[![Python Version](https://img.shields.io/badge/Python-3.7%2B-blue)]() [![Game Type](https://img.shields.io/badge/Game-Blackjack-orange)]() [![License](https://img.shields.io/badge/license-MIT-blue)]()  [![Test Coverage](https://img.shields.io/badge/Test%20Coverage-100%25-brightgreen)]() [![Last Updated](https://img.shields.io/badge/Last%20Updated-January%202025-orange)]() [![Contributions](https://img.shields.io/badge/Contributions-Welcome-brightgreen)]() [![PRs](https://img.shields.io/badge/PRs-Welcome-lightblue)]() [![Platform](https://img.shields.io/badge/Platform-MacOS%20%7C%20Linux%20%7C%20Windows-blue)]()  
 
 Welcome to **Blackjack PY -- 21**, a Python-based command-line implementation of the classic card game. Play against the dealer and experience the thrill of blackjack with automated scoring and rule handling.
 
@@ -15,10 +16,10 @@ Welcome to **Blackjack PY -- 21**, a Python-based command-line implementation of
   - [Installation](#installation)
   - [Run the Game](#run-the-game)
 - [Play](#play)
-- [Testcases / QA](#testcases-qa)
-  - [Continuous Integration and Deployment (CI/CD)](#ci-cd)
+- [Testcases / QA](#-testcases--qa)
+  - [Continuous Integration and Deployment (CI/CD)](#continuous-integration-and-deployment-cicd)
   - [Run Testcases local](#run-testcases-local)
-  - [Add Pre-Push Hook](#pre-push-hook)
+  - [Add Pre-Push Hook](#add-pre-push-hook-macos)
 - [Code Architecture](#code-architecture)  
   - [Design choices](#design-choices)
   - [Game files](#game-files)
