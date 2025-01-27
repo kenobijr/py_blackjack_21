@@ -1,6 +1,6 @@
 """
 - runner script to start the blackjack app;
-- imports the main function from the blackjack.main module and executes it
+- imports the main function from the blackjack. main module and executes it
 - by using this script, the game can be started from the project root directory, ensuring a
 consistent execution environment
 - usage:

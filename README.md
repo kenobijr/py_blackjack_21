@@ -50,7 +50,7 @@ The project is organized with test coverage (via `pytest`) to ensure reliability
 
 ### Prerequisites
 - Python 3.7+  
-- [pip](https://pypi.org/project/pip/) (usually bundled with Python installations)
+- [pip](https://pypi.org/project/pip/)
 
 ### Installation
 1. Clone the repository and install the required dependencies:
