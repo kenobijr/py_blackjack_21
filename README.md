@@ -1,5 +1,5 @@
 # Blackjack PY -- 21 (Python)
-[![Python Version](https://img.shields.io/badge/Python-3.7%2B-blue)]() [![Game Type](https://img.shields.io/badge/Game-Blackjack-orange)]() [![License](https://img.shields.io/badge/license-MIT-blue)]()  [![Test Coverage](https://img.shields.io/badge/Test%20Coverage-100%25-brightgreen)]() [![Last Updated](https://img.shields.io/badge/Last%20Updated-January%202025-orange)]() [![Contributions](https://img.shields.io/badge/Contributions-Welcome-brightgreen)]() [![PRs](https://img.shields.io/badge/PRs-Welcome-lightblue)]() [![Platform](https://img.shields.io/badge/Platform-MacOS%20%7C%20Linux%20%7C%20Windows-blue)]()  
+[![Python Version](https://img.shields.io/badge/Python-3.7%2B-blue)]() [![Game Type](https://img.shields.io/badge/Game-Blackjack-orange)]() [![License](https://img.shields.io/badge/license-MIT-blue)]() [![Platform](https://img.shields.io/badge/Platform-MacOS%20%7C%20Linux%20%7C%20Windows-blue)]()  
 
 Welcome to **Blackjack PY -- 21**, a Python-based command-line implementation of the classic card game. Play against the dealer and experience the thrill of blackjack with automated scoring and rule handling.
 
@@ -55,8 +55,8 @@ The project is organized with test coverage (via `pytest`) to ensure reliability
 ### Installation
 1. Clone the repository and install the required dependencies:
 ```bash
-git clone https://github.com/kenobijr/blackjack-game.git
-cd blackjack-game
+git clone https://github.com/kenobijr/py_blackjack_21
+cd py_blackjack_21
 ```
 2. Create and Activate a Virtual Environment (recommended)
 ```bash
